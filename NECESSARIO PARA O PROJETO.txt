@@ -1,0 +1,13 @@
+Coontrole de ativos SENAC
+
+__requisitos para funcionar__
+
+
+1-banco de dados
+2-controle de acesso(login)
+3-cadastro de autorizaçao de alteraçao de usuario (cadastro de login) - (FEITO)
+4-cadastro e alteraçao de informaçoes dos ativos (objetos cadastrados e alterados)
+5-listar e deletar ativos (excluir coisas listadas / listar coisas novas)
+6-controle de movimentaçoes (coisas que entram e sai ou estao sendo usadas[dataEhora, motivo, onde esta e quem realizou])
+7-pesquisa de ativos (pesquisar onde ativos estao)
+8 historico de movimentaçoes (saber o que foi feito anteriormente)
