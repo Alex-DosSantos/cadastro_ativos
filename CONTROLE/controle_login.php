@@ -1,13 +1,16 @@
 <?php
+session_start();
 include ('../modelo/conexao.php');
-include ('../controle/funcoes.php');
+
 $senha = $_POST['senha'];
 $usuario = $_POST['user'];
 
 $senhacrip = base64_encode($senha);
 
+
 $sql = "Select
- count (*) as quantidade
+ count(*) as quantidade,
+      idUsuario
     from
         usuario
     where
@@ -15,11 +18,17 @@ $sql = "Select
        and senhaUsuario = '$senhacrip'";
 
 $result = mysqli_query($conexao, $sql) or die (false);
-$dados = $result ->fetch_all(MYSQLI_ASSOC);
+$dados = $result ->fetch_assoc();
 if($dados['quantidade'] > 0){
-    echo 'Login realizado com sucesso!';
+    $_SESSION['login_ok'] = true;
+    $_SESSION['controle_login'] = true;
+    $_SESSION['id_user'] = $dados['idUsuario'];
+    header('location:../index.php');
+   
 }else{
-    echo 'Usuario ou senha inválidos!';
+    $_SESSION['login_ok'] = false;
+    unset ($_SESSION['controle_login']);
+    header('location:../visao/login.php?error_auten=s');
 }
 
 ?>

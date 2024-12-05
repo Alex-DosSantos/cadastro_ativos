@@ -1,4 +1,5 @@
 <?php
+include ('../controle/controle_session.php');
 // Conexão com o banco de dados (substitua pelos seus dados)
 include('../modelo/conexao.php'); // Inclua a conexão com o banco de dados
 include('../controle/funcoes.php'); // Inclui as funções necessárias

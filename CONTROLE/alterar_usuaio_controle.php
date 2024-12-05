@@ -1,12 +1,12 @@
 <?php
-
+include ('controle_session.php');
 include ('../modelo/conexao.php');
 
 $nome = $_POST['nome'];
 $turma = $_POST['turma'];
 $id = $_POST['id'];
 
-$senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+$senhaHash = base64_encode($senha);
 
 $query = "
  UPDATE 

@@ -1,4 +1,5 @@
 <?php
+include('../controle/controle_session.php');
 include('../modelo/conexao.php');
 include('../controle/funcoes.php');
 

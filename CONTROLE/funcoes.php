@@ -1,4 +1,5 @@
 <?php
+include_once ('controle_session.php');
 function buscar_info_bd($conexao, $tabela, $coluna_were = false, $valor_where = false) {
     $sql = "select * from ". $tabela;
     if ($coluna_were != false) {

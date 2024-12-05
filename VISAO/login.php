@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (isset($_GET['erro']) && $_GET['erro'] == 'sem_acesso') {
+    echo "<script>alert('ususario nao autenticado');</script>";
+}
+if (isset($_GET['error_auten']) && $_GET['error_auten'] == 's') {
+    echo  "<script>alert('senha ou usuario invalido');</script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,6 +29,7 @@
             margin: 0 auto;
             position: relative;
             color: white; /* Cor da fonte para branco */
+            border: 2px solid #800080; /* Borda roxa ao redor de toda a caixa */
         }
 
         /* Fundo de galaxia */
@@ -62,6 +76,14 @@
             text-align: center;
             color: white; /* Cor do título em branco */
         }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -70,12 +92,12 @@
             <h1>Login</h1>
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario:</label>
-                <input type="text" class="form-control" id="usuario" required aria-describedby="emailHelp">
+                <input type="text" name="user" class="form-control" id="usuario" required aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">Não compartilhe suas informações</div>
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha:</label>
-                <input type="password" class="form-control" required id="exampleInputPassword1">
+                <input type="password" name="senha" class="form-control" required id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-purple w-100">Entrar</button>
         </div>

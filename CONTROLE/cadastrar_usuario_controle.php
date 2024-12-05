@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha']; 
 $turma = $_POST['turma'];
 
-$senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+$senhaHash = base64_encode($senha );
 
 $query = "
     insert into usuario (

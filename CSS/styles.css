@@ -1,0 +1,86 @@
+/* Fundo laranja */
+body {
+    background-color: #e9a111 !important; /* Laranja */
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+}
+
+/* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
+.content-box {
+    background: rgba(255, 255, 255, 0.8); /* Semi-translúcido */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px; /* Espaçamento do topo */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza a caixa na página */
+}
+
+/* Estilo da tabela */
+.table {
+    font-size: 1.1rem;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e7cc82;
+    transition: background-color 0.3s ease;
+}
+
+/* Cabeçalho da tabela - Azul mais escuro com fonte branca */
+.thead-dark.bg-dark-custom {
+    background-color: #0588d4 !important; /* Azul mais escuro */
+    color: white !important; /* Garantir que o texto seja branco */
+}
+
+/* Botão centralizado */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Estilo do botão de destaque */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito hover no botão */
+.btn-info {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #084298;
+}
+
+/* Estilo para o Modal */
+.modal-content {
+    border-radius: 10px;
+}
+
+/* Títulos e cabeçalhos */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
