@@ -3,6 +3,7 @@ include('../controle/controle_session.php');
 include('cabecalho.php');
 include('../controle/funcoes.php');
 include('../modelo/conexao.php');
+include ('menu_superior.php');
 $marcas = buscar_info_bd($conexao, 'marca');
 $tipos = buscar_info_bd($conexao, 'tipo');
 $sql = "SELECT            

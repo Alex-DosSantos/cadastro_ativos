@@ -1,16 +1,12 @@
 <?php
-// Iniciar a sessão
-session_start();
-
-// Verificar se o usuário está logado (defina sua própria lógica de login)
-
-if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
+include ('cabecalho.php');
+if(@$_SESSION ['controle_login'] == true || @$_SESSION ['login_ok'] == true){
     $is_logged_in = true;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +21,6 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: white;
-            background-image: url('https://api.senacrs.com.br/bff/site-senac/v1/file/078f14348e634ca8e027c1fd4ceef9b63a9eb2.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -102,7 +96,7 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
             transform: scale(1.1);
         }
 
-        .usuario-link:hover+.submenu,
+        .usuario-link:hover + .submenu, 
         .submenu:hover {
             display: block;
         }
@@ -139,8 +133,7 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
             color: white;
             padding: 12px 20px;
             font-size: 1rem;
-            border-radius: 25px;
-            /* Borda arredondada */
+            border-radius: 25px; /* Borda arredondada */
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 1px;
@@ -154,48 +147,33 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
         }
     </style>
 </head>
+<header>
+<!-- Logo do Senac -->
+<img src="https://api.senacrs.com.br/bff/site-senac/v1/file/078f143692e591ec20623efea089cdf3d19a24.png" alt="Logo Senac" class="logo">
 
-<body>
-
-    <!-- Barra superior com a logo e menu -->
-    <header>
-        <!-- Logo do Senac -->
-        <img src="https://api.senacrs.com.br/bff/site-senac/v1/file/078f143692e591ec20623efea089cdf3d19a24.png" alt="Logo Senac" class="logo">
-
-        <!-- Menu de navegação -->
-        <nav>
+<!-- Menu de navegação -->
+<nav>
             <ul>
-                <li><a href="#" class="usuario-link">HOME</a>
+                <li><a href="../index.php" class="usuario-link">HOME</a>
                     <ul class="submenu">
-                        <li><a href="visao/cadastro_usuario.php">Cadastrar Usuário</a></li>
-                        <li><a href="visao/login.php">Login Usuário</a></li>
-                        <li><a href="visao/listar_usuario.php">Usuários</a></li>
+                        <li><a href="../visao/cadastro_usuario.php">Cadastrar Usuário</a></li>
+                        <li><a href="../visao/login.php">Login Usuário</a></li>
+                        <li><a href="../visao/listar_usuario.php">Usuários</a></li>
                     </ul>
                 </li>
-                <li><a class="usuario-link" href="visao/ativos.php">ATIVOS</a>
+                <li><a class="usuario-link" href="../visao/ativos.php">ATIVOS</a>
                     <ul class="submenu">
-                        <li><a href="visao/marcas.php">Cadastrar Marcas</a></li>
-                        <li><a href="visao/Tipos.php">Cadastrar Tipos</a></li>
+                        <li><a href="../visao/marcas.php">Cadastrar Marcas</a></li>
+                        <li><a href="../visao/Tipos.php">Cadastrar Tipos</a></li>
                     </ul>
                 </li>
-                <li><a href="visao/movimentacao.php">MOVIMENTAÇÕES</a></li>
-                <li><a href="visao/relatorio.php">RELATORIOS</a></li>
+                <li><a href="../visao/movimentacao.php">MOVIMENTAÇÕES</a></li>
+                <li><a href="../visao/relatorio.php">RELATORIOS</a></li>
             </ul>
         </nav>
 
-        <?php if ($is_logged_in): ?>
-            <!-- Botão de logout, visível apenas se o usuário estiver logado -->
-            <a href="controle/logout.php" class="logout-btn">Logout</a>
-        <?php endif; ?>
-    </header>
-
-    <!-- Caixa centralizada com as informações -->
-    <div class="caixa-centralizada">
-        <h1>Bem-vindo à página de controle de ativos do Senac</h1>
-        <p>Para melhor compreensão, nesta página estarão disponíveis o login e controle de usuários. Você deve acessar com sua conta em <strong>Home</strong> para ter acesso e realizar alterações ou criar um novo cadastro.</p>
-        <p><strong>Caso queira apenas olhar, não será necessário fazer login.</strong></p>
-    </div>
-
-</body>
-
-</html>
+<?php if ($is_logged_in): ?>
+    <!-- Botão de logout, visível apenas se o usuário estiver logado -->
+    <a href="../controle/logout.php" class="logout-btn">Logout</a>
+<?php endif; ?>
+</header>

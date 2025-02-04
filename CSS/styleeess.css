@@ -1,0 +1,144 @@
+/* Definindo a nova paleta de cores */
+:root {
+    --azul-escuro: #2C3E50; /* Azul escuro */
+    --verde-claro: #27AE60; /* Verde claro */
+    --amarelo-claro: #F1C40F; /* Amarelo claro */
+    --cinza-claro: #BDC3C7; /* Cinza claro */
+    --branco: #FFFFFF;
+    --cinza-escuro: #34495E; /* Cinza escuro */
+    --fundo-suave: #F8D7A3 ; /* Fundo suave */
+}
+
+/* Fundo suave inspirado na nova paleta */
+body {
+    background-color: var(--fundo-suave) !important; /* Fundo suave */
+    font-family: 'Arial', sans-serif;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+}
+
+/* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-translúcido */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px; /* Espaçamento do topo */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza a caixa na página */
+}
+
+/* Estilo da tabela */
+.table {
+    font-size: 1.1rem;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Hover nas linhas da tabela */
+.table-hover tbody tr:hover {
+    background-color: var(--amarelo-claro); /* Hover com amarelo claro */
+    transition: background-color 0.3s ease;
+}
+
+/* Cabeçalho da tabela - Azul escuro com fonte branca */
+.thead-dark.bg-dark-custom {
+    background-color: var(--azul-escuro) !important; /* Azul escuro */
+    color: white !important; /* Garantir que o texto seja branco */
+}
+
+/* Estilo dos links dentro da tabela */
+a {
+    color: var(--azul-escuro);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--verde-claro); /* Verde claro no hover */
+}
+
+/* Estilo dos botões */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Estilo do botão de destaque */
+.btn-success {
+    background-color: var(--verde-claro); /* Verde claro */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success:hover {
+    background-color: var(--amarelo-claro); /* Amarelo claro no hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para o Modal */
+.modal-content {
+    border-radius: 10px;
+    background-color: var(--verde-claro); /* Verde claro no fundo do modal */
+}
+
+/* Títulos e cabeçalhos */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--azul-escuro); /* Título azul escuro */
+    margin-bottom: 20px;
+}
+
+/* Títulos da tabela */
+th {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Estilo das células da tabela */
+td {
+    background-color: var(--branco);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--cinza-escuro);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

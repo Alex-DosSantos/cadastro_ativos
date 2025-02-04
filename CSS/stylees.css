@@ -1,18 +1,19 @@
-/* Definindo a nova paleta de cores */
+/* Definindo a paleta de cores Neve por do Sol */
 :root {
-    --vermelho-pesquisa: #B82132; /* Vermelho escuro */
-    --laranja-pesquisa: #D2665A; /* Laranja queimado */
-    --pessego-claro: #F2B28C; /* Pêssego claro */
-    --bege-suave: #F6DED8; /* Bege suave */
+    --neve: #f8f9fa; /* Neve */
+    --laranja-solar: #ff8c42; /* Laranja solar */
+    --rosa-quente: #ff6f61; /* Rosa quente */
+    --dourado-solar: #ffd700; /* Dourado solar */
+    --lilas-suave: #b392ac; /* Lilás suave */
     --branco: #ffffff;
     --cinza-claro: #f4f4f4;
     --cinza-escuro: #636363;
-    --fundo-tons-quentes: #F9E4D4; /* Fundo suave quente */
+    --fundo-neve: #f2e1c1; /* Fundo suave com tom de neve */
 }
 
-/* Fundo suave inspirado na nova paleta */
+/* Fundo suave inspirado na neve */
 body {
-    background-color: var(--fundo-tons-quentes) !important; /* Fundo suave quente */
+    background-color: var(--fundo-neve) !important; /* Fundo suave */
     font-family: 'Arial', sans-serif;
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimento padrão */
@@ -43,13 +44,13 @@ body {
 }
 
 .table-hover tbody tr:hover {
-    background-color: var(--pessego-claro); /* Hover com pêssego claro */
+    background-color: var(--lilas-suave); /* Hover com lilás suave */
     transition: background-color 0.3s ease;
 }
 
-/* Cabeçalho da tabela - Vermelho escuro com fonte branca */
+/* Cabeçalho da tabela - Laranja solar com fonte branca */
 .thead-dark.bg-dark-custom {
-    background-color: var(--vermelho-pesquisa) !important; /* Vermelho escuro */
+    background-color: var(--laranja-solar) !important; /* Laranja solar */
     color: white !important; /* Garantir que o texto seja branco */
 }
 
@@ -61,7 +62,7 @@ body {
 
 /* Estilo do botão de destaque */
 .btn-success {
-    background-color: var(--laranja-pesquisa); /* Laranja queimado */
+    background-color: var(--laranja-solar); /* Laranja solar */
     color: white;
     border: none;
     padding: 15px 30px;
@@ -71,30 +72,30 @@ body {
 }
 
 .btn-success:hover {
-    background-color: var(--pessego-claro); /* Pêssego claro no hover */
+    background-color: var(--rosa-quente); /* Rosa quente no hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Efeito hover no botão */
 .btn-info {
-    background-color: var(--vermelho-pesquisa); /* Vermelho escuro */
+    background-color: var(--dourado-solar); /* Dourado solar */
     color: white;
     border: none;
 }
 
 .btn-info:hover {
-    background-color: #8f1e2f; /* Tom mais escuro no hover */
+    background-color: #e1b100; /* Tom mais escuro no hover */
 }
 
 /* Estilo para o Modal */
 .modal-content {
     border-radius: 10px;
-    background-color: var(--laranja-pesquisa); /* Laranja queimado no fundo do modal */
+    background-color: var(--dourado-solar); /* Dourado solar no fundo do modal */
 }
 
 /* Títulos e cabeçalhos */
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--vermelho-pesquisa); /* Título vermelho escuro */
+    color: var(--laranja-solar); /* Título laranja solar */
 }

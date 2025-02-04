@@ -1,13 +1,12 @@
 /* Definindo a nova paleta de cores */
 :root {
-    --vermelho-pesquisa: #B82132; /* Vermelho escuro */
-    --laranja-pesquisa: #D2665A; /* Laranja queimado */
-    --pessego-claro: #F2B28C; /* Pêssego claro */
-    --bege-suave: #F6DED8; /* Bege suave */
-    --branco: #ffffff;
-    --cinza-claro: #f4f4f4;
-    --cinza-escuro: #636363;
-    --fundo-tons-quentes: #F9E4D4; /* Fundo suave quente */
+    --laranja-claro: #ffab03; /* Laranja claro */
+    --laranja-escuro: #fc7f03; /* Laranja escuro */
+    --vermelho-laranja: #fc3903; /* Vermelho alaranjado */
+    --rosa-escuro: #d1024e; /* Rosa escuro */
+    --roxo-escuro: #a6026c; /* Roxo escuro */
+    --branco: #FFFFFF;
+    --fundo-tons-quentes: #ffd8ae; /* Fundo suave quente */
 }
 
 /* Fundo suave inspirado na nova paleta */
@@ -20,7 +19,7 @@ body {
 
 /* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
 .content-box {
-    background: rgba(255, 255, 255, 0.8); /* Semi-translúcido */
+    background: rgba(255, 255, 255, 0.9); /* Semi-translúcido */
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,13 +42,13 @@ body {
 }
 
 .table-hover tbody tr:hover {
-    background-color: var(--pessego-claro); /* Hover com pêssego claro */
+    background-color: var(--laranja-claro); /* Hover com laranja claro */
     transition: background-color 0.3s ease;
 }
 
-/* Cabeçalho da tabela - Vermelho escuro com fonte branca */
+/* Cabeçalho da tabela - Laranja escuro com fonte branca */
 .thead-dark.bg-dark-custom {
-    background-color: var(--vermelho-pesquisa) !important; /* Vermelho escuro */
+    background-color: var(--laranja-escuro) !important; /* Laranja escuro */
     color: white !important; /* Garantir que o texto seja branco */
 }
 
@@ -61,7 +60,7 @@ body {
 
 /* Estilo do botão de destaque */
 .btn-success {
-    background-color: var(--laranja-pesquisa); /* Laranja queimado */
+    background-color: var(--laranja-escuro); /* Laranja escuro */
     color: white;
     border: none;
     padding: 15px 30px;
@@ -71,30 +70,30 @@ body {
 }
 
 .btn-success:hover {
-    background-color: var(--pessego-claro); /* Pêssego claro no hover */
+    background-color: var(--laranja-claro); /* Laranja claro no hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Efeito hover no botão */
 .btn-info {
-    background-color: var(--vermelho-pesquisa); /* Vermelho escuro */
+    background-color: var(--roxo-escuro); /* Roxo escuro */
     color: white;
     border: none;
 }
 
 .btn-info:hover {
-    background-color: #8f1e2f; /* Tom mais escuro no hover */
+    background-color: var(--rosa-escuro); /* Rosa escuro no hover */
 }
 
 /* Estilo para o Modal */
 .modal-content {
     border-radius: 10px;
-    background-color: var(--laranja-pesquisa); /* Laranja queimado no fundo do modal */
+    background-color: var(--fundo-tons-quentes); /* Fundo suave quente no modal */
 }
 
 /* Títulos e cabeçalhos */
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--vermelho-pesquisa); /* Título vermelho escuro */
+    color: var(--roxo-escuro); /* Título roxo escuro */
 }

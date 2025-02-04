@@ -2,12 +2,15 @@
 include('../controle/controle_session.php');
 include('../modelo/conexao.php');
 include('../controle/funcoes.php');
-
+include ('menu_superior.php');
 $info_db = buscar_info_bd($conexao,'usuario');
 
 include('cabecalho.php');
+$admin = $_SESSION['admin'];
 ?>
-
+<head><!-- Link para o arquivo CSS -->
+<link rel="stylesheet" href="../css/styleeess.css"> <!-- Caminho para o seu arquivo CSS -->
+</head>
 
 <body>
     <div class = "container">
@@ -24,9 +27,9 @@ include('cabecalho.php');
 foreach ($info_db as $user) {
 ?>
     <tr>
-     <td><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['nomeUsuario'];?> </a> </td>
-     <td><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['usuario'];?> </a> </td>
-     <td><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['turmaUsuario'];?> </a> </td>
+     <td><?php if ($admin == "S"){?><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['nomeUsuario'];?> </a> <?php }else{echo $user['nomeUsuario'];} ?> </td>
+     <td><?php if ($admin == "S"){?><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['usuario'];?> </a> <?php }else{echo $user['usuario'];} ?> </td>
+     <td><?php if ($admin == "S"){?><a href="editar_usuario.php?id=<?php echo $user ['idUsuario'];?>"> <?php echo $user ['turmaUsuario'];?> </a> <?php }else{echo $user['turmaUsuario'];} ?> </td>
     </tr>
 
  <?php   

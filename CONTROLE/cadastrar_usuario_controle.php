@@ -9,6 +9,9 @@ $turma = $_POST['turma'];
 
 $senhaHash = base64_encode($senha );
 
+
+
+
 $query = "
     insert into usuario (
     nomeUsuario,
