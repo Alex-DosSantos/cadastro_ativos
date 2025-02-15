@@ -8,6 +8,8 @@
     --cinza-claro: #f4f4f4;
     --cinza-escuro: #636363;
     --fundo-tons-quentes: #F9E4D4; /* Fundo suave quente */
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-intensa: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Fundo suave inspirado na nova paleta */
@@ -16,80 +18,25 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimento padrão */
+    line-height: 1.6;
 }
 
 /* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
 .content-box {
-    background: rgba(255, 255, 255, 0.8); /* Semi-translúcido */
+    background: rgba(255, 255, 255, 0.9); /* Semi-translúcido */
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--sombra-intensa);
     margin-top: 50px; /* Espaçamento do topo */
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto; /* Centraliza a caixa na página */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo da tabela */
-.table {
-    font-size: 1.1rem;
-    background-color: transparent;
-    border-radius: 10px;
-}
-
-.table th, .table td {
-    padding: 15px;
-    text-align: center;
-}
-
-.table-hover tbody tr:hover {
-    background-color: var(--pessego-claro); /* Hover com pêssego claro */
-    transition: background-color 0.3s ease;
-}
-
-/* Cabeçalho da tabela - Vermelho escuro com fonte branca */
-.thead-dark.bg-dark-custom {
-    background-color: var(--vermelho-pesquisa) !important; /* Vermelho escuro */
-    color: white !important; /* Garantir que o texto seja branco */
-}
-
-/* Botão centralizado */
-.button-container {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Estilo do botão de destaque */
-.btn-success {
-    background-color: var(--laranja-pesquisa); /* Laranja queimado */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-success:hover {
-    background-color: var(--pessego-claro); /* Pêssego claro no hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Efeito hover no botão */
-.btn-info {
-    background-color: var(--vermelho-pesquisa); /* Vermelho escuro */
-    color: white;
-    border: none;
-}
-
-.btn-info:hover {
-    background-color: #8f1e2f; /* Tom mais escuro no hover */
-}
-
-/* Estilo para o Modal */
-.modal-content {
-    border-radius: 10px;
-    background-color: var(--laranja-pesquisa); /* Laranja queimado no fundo do modal */
+.content-box:hover {
+    transform: translateY(-5px); /* Efeito de levantar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Títulos e cabeçalhos */
@@ -97,4 +44,182 @@ h1 {
     font-size: 2.5rem;
     font-weight: bold;
     color: var(--vermelho-pesquisa); /* Título vermelho escuro */
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--laranja-pesquisa), var(--pessego-claro));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Estilo da tabela */
+.table {
+    font-size: 1.1rem;
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: box-shadow 0.3s ease;
+}
+
+.table:hover {
+    box-shadow: var(--sombra-intensa);
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da tabela - Vermelho escuro com fonte branca */
+.table thead th {
+    background-color: var(--vermelho-pesquisa) !important; /* Vermelho escuro */
+    color: white !important; /* Garantir que o texto seja branco */
+    font-weight: bold;
+    border-bottom: 2px solid var(--laranja-pesquisa); /* Borda laranja queimado */
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(242, 178, 140, 0.1); /* Hover com pêssego claro suave */
+    transition: background-color 0.3s ease;
+}
+
+/* Filtros avançados */
+.filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.filters label {
+    font-weight: bold;
+    color: var(--vermelho-pesquisa); /* Vermelho escuro para os rótulos */
+    margin-bottom: 5px;
+    display: block;
+}
+
+.filters select,
+.filters input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--laranja-pesquisa); /* Laranja queimado para a borda */
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--branco); /* Fundo branco */
+    color: var(--cinza-escuro); /* Cinza escuro para o texto */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters select:focus,
+.filters input:focus {
+    border-color: var(--pessego-claro); /* Pêssego claro no foco */
+    box-shadow: 0 0 8px rgba(242, 178, 140, 0.3); /* Sombra pêssego no foco */
+    outline: none;
+}
+
+.filters button {
+    background-color: var(--laranja-pesquisa); /* Laranja queimado para o botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    grid-column: span 3;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    background-color: var(--pessego-claro); /* Pêssego claro no hover */
+    transform: translateY(-3px); /* Efeito de levantar */
+}
+
+.filters button:active {
+    transform: translateY(0); /* Efeito de pressionar */
+}
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Botão de exportar */
+.btn-exportar {
+    background-color: var(--laranja-pesquisa); /* Laranja queimado */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px; /* Bordas arredondadas */
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--sombra-suave);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove sublinhado do link */
+    display: inline-block; /* Garante que o link se comporte como um botão */
+    font-weight: bold;
+}
+
+.btn-exportar:hover {
+    background-color: var(--pessego-claro); /* Pêssego claro no hover */
+    transform: translateY(-3px); /* Efeito de levantar */
+    box-shadow: var(--sombra-intensa);
+}
+
+.btn-exportar:active {
+    transform: translateY(0); /* Efeito de pressionar */
+    box-shadow: var(--sombra-suave);
+}
+
+/* Efeitos de animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-box, .filters, .table, .btn-exportar {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Estilo para o Modal */
+.modal-content {
+    border-radius: 15px;
+    background-color: var(--bege-suave); /* Bege suave no fundo do modal */
+    box-shadow: var(--sombra-intensa);
+}
+
+.modal-header {
+    background-color: var(--vermelho-pesquisa);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 15px;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
 }

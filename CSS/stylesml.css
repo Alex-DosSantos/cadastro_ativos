@@ -1,0 +1,132 @@
+/* Container principal */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    background-color: #f9f9f9; /* Fundo suave para o container */
+    border-radius: 15px; /* Bordas arredondadas */
+    margin: 20px auto; /* Centralizar e adicionar margem */
+    max-width: 1200px; /* Limitar largura máxima */
+}
+
+/* Card do produto */
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    width: 220px; /* Largura um pouco maior */
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Garantir que nada ultrapasse o card */
+    position: relative; /* Para posicionar elementos internos */
+    display: flex; /* Torna o card um contêiner flexível */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Efeito de levantar mais */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteúdo acima do botão */
+.product-card > *:not(.mercado-livre-button) {
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+}
+
+/* Botão "Ver no Mercado Livre" */
+.mercado-livre-button {
+    border: solid 2px rgb(0, 204, 255);
+    height: 30px;
+    position: relative;
+    padding: 8px;
+    background-color: rgb(0, 204, 255);
+    color: white;
+    text-decoration: none; /* Remove sublinhado padrão */
+    border-radius: 25px; /* Bordas mais arredondadas */
+    display: inline-flex; /* Alinhar texto e ícone */
+    align-items: center; /* Centralizar verticalmente */
+    justify-content: center; /* Centralizar horizontalmente */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição */
+    margin-top: auto; /* Alinha o botão na parte inferior */
+    font-weight: 500; /* Texto um pouco mais forte */
+}
+
+.mercado-livre-button:hover {
+    background-color: rgb(0, 88, 204); /* Cor mais escura ao passar o mouse */
+    border: solid 2px rgb(0, 88, 204);
+    transform: scale(1.05); /* Efeito de crescimento */
+}
+
+/* Imagem do produto */
+.product-image {
+    width: 100%;
+    height: 180px; /* Altura fixa para consistência */
+    object-fit: cover; /* Garantir que a imagem cubra o espaço */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05); /* Efeito de zoom na imagem */
+}
+
+/* Título do produto */
+.product-title {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: 600; /* Mais destaque para o título */
+    line-height: 1.4; /* Melhor espaçamento entre linhas */
+}
+
+/* Preço do produto */
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e67e22; /* Laranja */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espaço entre ícone e texto */
+}
+
+.product-price::before {
+    content: "💰"; /* Ícone de moeda */
+    font-size: 16px;
+}
+
+/* Efeito de destaque no card */
+.product-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Não interferir com cliques */
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-card {
+        width: 100%; /* Cards ocupam toda a largura em telas pequenas */
+        max-width: 300px; /* Limitar largura máxima */
+    }
+
+    .product-container {
+        padding: 10px;
+    }
+}

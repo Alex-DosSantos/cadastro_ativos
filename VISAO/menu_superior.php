@@ -73,6 +73,7 @@ if(@$_SESSION ['controle_login'] == true || @$_SESSION ['login_ok'] == true){
 
         /* Submenu */
         .submenu {
+            z-index: 100;
             display: none;
             position: absolute;
             top: 100%;

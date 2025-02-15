@@ -10,6 +10,7 @@ $sql = "SELECT
      `idAtivo`,
      `descricaoAtivo`,
      `quantidadeAtivo`,
+     
      `statusAtivo`,
      `observacaoAtivo`,
      (SELECT descricaoMarca FROM marca m WHERE m.idMarca = a.idMarca) AS marca,
@@ -62,6 +63,7 @@ $ativos_bd = $result->fetch_all(MYSQLI_ASSOC);
                     <tr>
                         <td><?php echo $ativos['descricaoAtivo']; ?></td>
                         <td><?php echo $ativos['quantidadeAtivo']; ?></td>
+                        
                         <td><?php echo $ativos['marca']; ?></td>
                         <td><?php echo $ativos['tipo']; ?></td>
                         <td><?php echo $ativos['observacaoAtivo']; ?></td>

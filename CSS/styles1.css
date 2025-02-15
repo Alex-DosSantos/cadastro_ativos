@@ -77,14 +77,16 @@ h1::after {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Cabeçalho da tabela - Azul aço médio com fonte branca */
 .table th {
-    background-color: var(--azul-aco-medio); /* Azul aço médio */
-    color: rgb(0, 0, 0);
+    background-color: var(--azul-aco-medio) !important; /* Azul aço médio */
+    color: var(--branco) !important; /* Texto branco */
     font-weight: bold;
+    border-bottom: 2px solid var(--azul-ceu-claro); /* Borda azul céu claro */
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(87, 253, 239, 0.1); /* Hover com azul céu claro suave */
+    background-color: rgba(135, 206, 235, 0.1); /* Hover com azul céu claro suave */
     transition: background-color 0.3s ease;
 }
 
@@ -144,6 +146,11 @@ h1::after {
 .filters button:active {
     transform: translateY(0); /* Efeito de pressionar */
 }
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
 
 /* Botão de exportar */
 .btn-exportar {

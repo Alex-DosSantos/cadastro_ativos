@@ -10,7 +10,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Ativo</h1>
-        <button type="button" onclick="limpar_modal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" onclick="limpar_modal2()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
@@ -23,9 +23,14 @@
             <input type="number" class="form-control" id="quantidade">
           </div>
           <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Quantidade Min:</label>
+            <input type="number" class="form-control" id="quantidadeMinAtivo">
+          </div>
+          <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Observação:</label>
             <input type="text" class="form-control" id="obs">
           </div>
+         
           <div class="mb-3">
           <label for="recipient-name" class="col-form-label">Marca:</label>
           <select class="form-select" id="marca">
@@ -48,7 +53,14 @@
      ?>
 </select>  
 </div>
-        
+<div class="mb-3">
+  <label for="formFile" class="form-label">Imagem Ativo</label>
+  <input class="form-control" accept="image/png, image/jpeg" type="file" id="imgAtivo">
+</div>
+<div class="mb-3 div_previer" style = "display:none">
+  <label for="formFile" class="form-label">Imagem Previw</label>
+  <img id = "img_previer" style = "width: 150px; position: relative;left: 20%;">
+</div>
       </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-secondary" >Limpar</button>
