@@ -1,4 +1,4 @@
-<!-- modal_movimentacoes.php -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -9,7 +9,7 @@
       <div class="modal-body">
         <form id="form_movimentacao">
           <div class="mb-3">
-            <label for="idAtivo" class="col-form-label">Ativo *:</label>
+            <label for="idAtivo" class="col-form-label">Ativo :<span class="asterisco-vermelho">*</span></label>
             <select class="form-select" id="idAtivo" required>
               <option selected>Selecione o Ativo</option>
               <?php
@@ -26,11 +26,11 @@
             <input type="text" class="form-control" id="descricaoMovimentacao" required>
           </div>
           <div class="mb-3">
-            <label for="quantidadeMov" class="col-form-label">Quantidade Movimentada *:</label>
+            <label for="quantidadeMov" class="col-form-label">Quantidade Movimentada :<span class="asterisco-vermelho">*</span></label>
             <input type="number" class="form-control" id="quantidadeMov" required>
           </div>
           <div class="mb-3">
-            <label for="tipoMovimentacao" class="col-form-label">Tipo de Movimentação *:</label>
+            <label for="tipoMovimentacao" class="col-form-label">Tipo de Movimentação :<span class="asterisco-vermelho">*</span></label>
             <select class="form-select" id="tipoMovimentacao" required>
             <option value="">Selecione</option>
               <option value="entrada">Entrada</option>
@@ -39,11 +39,11 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="localOrigem" class="col-form-label">Local de Origem:</label>
+            <label for="localOrigem" class="col-form-label">Local de Origem:<span class="asterisco-vermelho">*</span></label>
             <input type="text" class="form-control" id="localOrigem" required>
           </div>
           <div class="mb-3">
-            <label for="localDestino" class="col-form-label">Local de Destino:</label>
+            <label for="localDestino" class="col-form-label">Local de Destino:<span class="asterisco-vermelho">*</span></label>
             <input type="text" class="form-control" id="localDestino" required>
           </div>
         </form>

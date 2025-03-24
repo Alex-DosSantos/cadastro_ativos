@@ -5,7 +5,7 @@ include('../controle/funcoes.php');
 include('../modelo/conexao.php');
 include('menu_superior.php');
 
-// Consultar dados das movimentações
+
 $sql = "SELECT
             m.idMovimentacao,
             m.idUsuario,

@@ -6,56 +6,77 @@
     --cinza-claro: #BDC3C7; /* Cinza claro */
     --branco: #FFFFFF;
     --cinza-escuro: #34495E; /* Cinza escuro */
-    --fundo-suave: #F8D7A3 ; /* Fundo suave */
+    --fundo-suave: #e2e0db; /* Fundo suave */
+    --sombra-suave: rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Fundo suave inspirado na nova paleta */
+/* Estilo global */
 body {
-    background-color: var(--fundo-suave) !important; /* Fundo suave */
-    font-family: 'Arial', sans-serif;
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove preenchimento padrão */
+    background-color: var(--fundo-suave) !important;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--azul-escuro);
+    line-height: 1.6;
 }
 
-/* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
+/* Container principal */
 .container {
-    background: rgba(255, 255, 255, 0.9); /* Semi-translúcido */
+    background: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
     border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px; /* Espaçamento do topo */
+    padding: 40px;
+    box-shadow: 0 8px 20px var(--sombra-suave);
+    margin-top: 50px;
     max-width: 1200px;
     margin-left: auto;
-    margin-right: auto; /* Centraliza a caixa na página */
+    margin-right: auto;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Estilo da tabela */
 .table {
     font-size: 1.1rem;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Espaçamento entre as linhas */
     margin-top: 20px;
 }
 
 .table th, .table td {
     padding: 15px;
     text-align: center;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--cinza-claro);
+    background-color: var(--branco);
+    transition: all 0.3s ease;
+}
+
+.table th {
+    background-color: #ff8c42;
+    color: var(--branco);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* Hover nas linhas da tabela */
 .table-hover tbody tr:hover {
-    background-color: var(--amarelo-claro); /* Hover com amarelo claro */
-    transition: background-color 0.3s ease;
+    background-color: var(--amarelo-claro);
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px var(--sombra-suave);
 }
 
-/* Cabeçalho da tabela - Azul escuro com fonte branca */
-.thead-dark.bg-dark-custom {
-    background-color: var(--azul-escuro) !important; /* Azul escuro */
-    color: white !important; /* Garantir que o texto seja branco */
-}
-
-/* Estilo dos links dentro da tabela */
+/* Links dentro da tabela */
 a {
     color: var(--azul-escuro);
     text-decoration: none;
@@ -64,81 +85,92 @@ a {
 }
 
 a:hover {
-    color: var(--verde-claro); /* Verde claro no hover */
+    color: var(--verde-claro);
 }
 
-/* Estilo dos botões */
+/* Botões */
 .button-container {
     text-align: center;
     margin-top: 30px;
 }
 
-/* Estilo do botão de destaque */
 .btn-success {
-    background-color: var(--verde-claro); /* Verde claro */
-    color: white;
+    background-color: var(--verde-claro);
+    color: var(--branco);
     border: none;
     padding: 15px 30px;
     font-size: 1.1rem;
     border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--sombra-suave);
+    transition: all 0.3s ease;
 }
 
 .btn-success:hover {
-    background-color: var(--amarelo-claro); /* Amarelo claro no hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--amarelo-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px var(--sombra-suave);
 }
 
-/* Estilo para o Modal */
+/* Modal */
 .modal-content {
     border-radius: 10px;
-    background-color: var(--verde-claro); /* Verde claro no fundo do modal */
+    background-color: var(--branco);
+    box-shadow: 0 8px 20px var(--sombra-suave);
+}
+
+.modal-header {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-weight: 600;
 }
 
 /* Títulos e cabeçalhos */
 h1 {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--azul-escuro); /* Título azul escuro */
+    font-weight: 700;
+    color: var(--azul-escuro);
     margin-bottom: 20px;
-}
-
-/* Títulos da tabela */
-th {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* Estilo das células da tabela */
-td {
-    background-color: var(--branco);
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 /* Rodapé */
 footer {
     text-align: center;
     margin-top: 40px;
-    padding: 10px;
+    padding: 20px;
     font-size: 1rem;
     color: var(--cinza-escuro);
+    background-color: var(--branco);
+    border-top: 1px solid var(--cinza-claro);
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .container {
         width: 90%;
-        padding: 15px;
+        padding: 20px;
     }
 
-    table {
+    .table {
         font-size: 1rem;
     }
 
-    th, td {
+    .table th, .table td {
         padding: 10px;
     }
 
     h1 {
         font-size: 2rem;
+    }
+
+    .btn-success {
+        padding: 12px 24px;
+        font-size: 1rem;
     }
 }

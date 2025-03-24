@@ -12,17 +12,17 @@ include ('menu_superior.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tipos</title>
   
-  <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="../css/styleees.css"> <!-- Caminho para o seu arquivo CSS -->
   
-  <!-- Inclusão de Bootstrap -->
+  <link rel="stylesheet" href="../css/styleees.css"> 
+  
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <script src="../js/tipos.js"></script>
 <body>
-    <!-- Caixa semi-translúcida com bordas arredondadas -->
+    
     <div class="content-box">
-        <!-- Título centralizado -->
+        
         <div class="d-flex justify-content-center mb-4">
             <h1 class="text-center">Tipos</h1>
         </div>
@@ -72,7 +72,7 @@ include ('menu_superior.php');
             </tbody>
         </table>
         </div>
-        <!-- Botão de cadastro centralizado -->
+        
         <div class="button-container">
             <button type="button" class="btn btn-primary btn_modal" onclick="limpar_modal()" id="btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar Tipo</button>
         </div>  

@@ -5,37 +5,32 @@ include('../controle/funcoes.php');
 include('../modelo/conexao.php');
 include('menu_superior.php');
 
-$query = 'gabinet';
 
-// URL da API para buscar produtos
-$url = "https://api.mercadolibre.com/sites/MLB/search?q=" . urlencode($query);
 
-// Fazer a requisição
-$response = file_get_contents($url);
 
-// Verificar se a requisição foi bem-sucedida
-if ($response === FALSE) {
-    echo "Erro ao acessar a API do Mercado Livre.";
-} else {
-    // Decodificar a resposta JSON
-    $data = json_decode($response, true);
 
-    // Exibir os produtos
-    if (isset($data['results'])) {
-        echo "<div class='product-container'>";
-        foreach ($data['results'] as $product) {
-            echo "<div class='product-card'>";
-            echo "<h3 class='product-title'>" . $product['title'] . "</h3>";
-            echo "<img src='" . $product['thumbnail'] . "' alt='" . $product['title'] . "' class='product-image'>";
-            echo "<p class='product-price'>Preço: R$ " . number_format($product['price'], 2, ',', '.') . "</p>";
-            echo "<a href='" . $product['permalink'] . "' target='_blank' class='mercado-livre-button'>Ver no Mercado Livre</a>";
-            echo "</div>";
-        }
-        echo "</div>";
-    }else {
-        echo "Nenhum produto encontrado.";
+// Recuperar os ativos e quantidades mínimas do banco de dados
+function recuperar_ativos($conexao) {
+    $query = "
+    SELECT
+    quantidadeAtivo,
+    quantidadeMinAtivo,
+    descricaoAtivo,
+    (SELECT quantidadeUso FROM movimentacao m WHERE m.idAtivo = a.idAtivo and m.statusMov='S') as quantidade_uso,
+    (SELECT descicaoMarca FROM marca ma WHERE ma.idMarca = a.idMarca ) as descr_marca
+    FROM ativos a
+    "; 
+    $resultado = mysqli_query($conexao, $query);
+
+    $ativos = [];
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $ativos[] = $row;
     }
+
+    return $ativos;
 }
+
+
 
 ?>
 
@@ -51,5 +46,6 @@ if ($response === FALSE) {
     <link rel="stylesheet" href="../css/stylesml.css"> <!-- Caminho para o seu arquivo CSS -->
 </head>
 <body>
+   
 </body>
 </html>

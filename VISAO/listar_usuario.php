@@ -8,8 +8,8 @@ $info_db = buscar_info_bd($conexao,'usuario');
 include('cabecalho.php');
 $admin = $_SESSION['admin'];
 ?>
-<head><!-- Link para o arquivo CSS -->
-<link rel="stylesheet" href="../css/styleeess.css"> <!-- Caminho para o seu arquivo CSS -->
+<head>
+<link rel="stylesheet" href="../css/styleeess.css"> 
 </head>
 
 <body>

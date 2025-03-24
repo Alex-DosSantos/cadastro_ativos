@@ -4,6 +4,10 @@ $(document).ready(function(){
       
       let tipo = $("#tipo").val();
       let idTipo = $("#idTipo").val();
+      if (tipo == '') {
+        alert('A descrição do tipo deve ser preenchida!');
+        return false;
+    }
       if (idTipo == ""){
         acao='inserir';
         } else {

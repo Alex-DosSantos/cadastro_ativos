@@ -1,18 +1,21 @@
-/* Definindo a nova paleta de cores */
+/* Definindo a paleta de cores Neve por do Sol */
 :root {
-    --azul-ceu-claro: #87CEEB; /* Azul céu claro */
-    --azul-aco-medio: #4682B4; /* Azul aço médio */
-    --azul-claro-suave: #E0FFFF; /* Azul claro suave */
-    --cinza-azulado-escuro: #2F4F4F; /* Cinza azulado escuro */
-    --branco: #FFFFFF;
-    --fundo-tons-frios: #bff1f1; /* Fundo suave azul claro */
+    --neve: #f8f9fa; /* Neve */
+    --laranja-solar: #ff8c42; /* Laranja solar */
+    --rosa-quente: #ff6f61; /* Rosa quente */
+    --dourado-solar: #ffd700; /* Dourado solar */
+    --lilas-suave: #b392ac; /* Lilás suave */
+    --branco: #ffffff;
+    --cinza-claro: #f4f4f4;
+    --cinza-escuro: #636363;
+    --fundo-neve: #e2e0db; /* Fundo suave com tom de neve */
     --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
     --sombra-intensa: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Fundo suave inspirado na nova paleta */
+/* Fundo suave inspirado na neve */
 body {
-    background-color: var(--fundo-tons-frios) !important; /* Fundo suave azul claro */
+    background-color: var(--fundo-neve) !important; /* Fundo suave */
     font-family: 'Arial', sans-serif;
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove preenchimento padrão */
@@ -21,7 +24,7 @@ body {
 
 /* Caixa semi-translúcida com bordas arredondadas (aplicada a todo o conteúdo) */
 .content-box {
-    background: rgba(255, 255, 255, 0.95); /* Semi-translúcido */
+    background: rgba(255, 255, 255, 0.9); /* Semi-translúcido */
     border-radius: 15px;
     padding: 30px;
     box-shadow: var(--sombra-intensa);
@@ -41,7 +44,7 @@ body {
 h1 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--cinza-azulado-escuro); /* Título cinza azulado escuro */
+    color: var(--laranja-solar); /* Título laranja solar */
     text-align: center;
     margin-bottom: 30px;
     position: relative;
@@ -52,7 +55,7 @@ h1::after {
     display: block;
     width: 60px;
     height: 4px;
-    background: linear-gradient(to right, var(--azul-aco-medio), var(--azul-ceu-claro));
+    background: linear-gradient(to right, var(--laranja-solar), var(--rosa-quente));
     margin: 10px auto 0;
     border-radius: 2px;
 }
@@ -77,16 +80,16 @@ h1::after {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Cabeçalho da tabela - Azul aço médio com fonte branca */
+/* Cabeçalho da tabela - Laranja solar com fonte branca */
 .table th {
-    background-color: var(--azul-aco-medio) !important; /* Azul aço médio */
+    background-color: var(--laranja-solar) !important; /* Laranja solar */
     color: var(--branco) !important; /* Texto branco */
     font-weight: bold;
-    border-bottom: 2px solid var(--azul-ceu-claro); /* Borda azul céu claro */
+    border-bottom: 2px solid var(--rosa-quente); /* Borda rosa quente */
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(135, 206, 235, 0.1); /* Hover com azul céu claro suave */
+    background-color: rgba(179, 146, 172, 0.1); /* Hover com lilás suave */
     transition: background-color 0.3s ease;
 }
 
@@ -100,7 +103,7 @@ h1::after {
 
 .filters label {
     font-weight: bold;
-    color: var(--cinza-azulado-escuro); /* Cinza azulado escuro para os rótulos */
+    color: var(--laranja-solar); /* Laranja solar para os rótulos */
     margin-bottom: 5px;
     display: block;
 }
@@ -109,23 +112,23 @@ h1::after {
 .filters input {
     width: 100%;
     padding: 10px;
-    border: 2px solid var(--azul-aco-medio); /* Azul aço médio para a borda */
+    border: 2px solid var(--laranja-solar); /* Laranja solar para a borda */
     border-radius: 8px;
     font-size: 1rem;
     background-color: var(--branco); /* Fundo branco */
-    color: var(--cinza-azulado-escuro); /* Cinza azulado escuro para o texto */
+    color: var(--cinza-escuro); /* Cinza escuro para o texto */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filters select:focus,
 .filters input:focus {
-    border-color: var(--azul-ceu-claro); /* Azul céu claro no foco */
-    box-shadow: 0 0 8px rgba(135, 206, 235, 0.3); /* Sombra azul no foco */
+    border-color: var(--rosa-quente); /* Rosa quente no foco */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.3); /* Sombra rosa no foco */
     outline: none;
 }
 
 .filters button {
-    background-color: var(--azul-aco-medio); /* Azul aço médio para o botão */
+    background-color: var(--laranja-solar); /* Laranja solar para o botão */
     color: white;
     border: none;
     padding: 12px 20px;
@@ -139,7 +142,7 @@ h1::after {
 }
 
 .filters button:hover {
-    background-color: var(--azul-ceu-claro); /* Azul céu claro no hover */
+    background-color: var(--rosa-quente); /* Rosa quente no hover */
     transform: translateY(-3px); /* Efeito de levantar */
 }
 
@@ -154,7 +157,7 @@ h1::after {
 
 /* Botão de exportar */
 .btn-exportar {
-    background-color: var(--azul-aco-medio); /* Azul aço médio */
+    background-color: var(--laranja-solar); /* Laranja solar */
     color: white;
     border: none;
     padding: 15px 30px;
@@ -169,7 +172,7 @@ h1::after {
 }
 
 .btn-exportar:hover {
-    background-color: var(--azul-ceu-claro); /* Azul céu claro no hover */
+    background-color: var(--rosa-quente); /* Rosa quente no hover */
     transform: translateY(-3px); /* Efeito de levantar */
     box-shadow: var(--sombra-intensa);
 }
@@ -198,12 +201,12 @@ h1::after {
 /* Estilo para o Modal */
 .modal-content {
     border-radius: 15px;
-    background-color: var(--azul-claro-suave); /* Azul claro suave no fundo do modal */
+    background-color: var(--neve); /* Neve no fundo do modal */
     box-shadow: var(--sombra-intensa);
 }
 
 .modal-header {
-    background-color: var(--azul-aco-medio);
+    background-color: var(--laranja-solar);
     color: white;
     border-radius: 15px 15px 0 0;
     padding: 15px;
@@ -220,4 +223,8 @@ h1::after {
 .modal-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px;
+}
+ /* Estilo para o asterisco vermelho */
+ .asterisco-vermelho {
+    color: red;
 }

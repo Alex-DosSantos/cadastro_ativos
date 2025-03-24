@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ERROR);
 include('../modelo/conexao.php');
 include('controle_session.php');
+
+// Captura dos dados do POST
 $ativo = $_POST['ativo'];
 $quantidade = $_POST['quantidade'];
 $quantidadeMinAtivo = $_POST['quantidadeMinAtivo'];
@@ -14,13 +16,10 @@ $acao = $_POST['acao'];
 $idAtivo = $_POST['idAtivo'];
 $statusAtivo = $_POST['status'];
 $img = $_FILES['img'];
+$quantidadeObs = isset($_POST['quantidadeObs']) ? $_POST['quantidadeObs'] : null; // Novo campo: motivo da alteração
 
-
-
-
-
+// Ação de inserir
 if ($acao == 'inserir') {
-
     $pasta_base = $_SERVER['DOCUMENT_ROOT'] . '/aulasenac/cadastro senac projeto ivan/img_ativo/';
     if (!file_exists($pasta_base)) {
         mkdir($pasta_base);
@@ -36,51 +35,52 @@ if ($acao == 'inserir') {
     }
     $urlImg = '/aulasenac/cadastro senac projeto ivan/img_ativo/' . $data . '.' . $extencao;
 
-
-
     $query = "
-    insert into ativos (
-    descricaoAtivo,
-    quantidadeAtivo,
-    quantidadeMinAtivo,
-    statusAtivo,
-    observacaoAtivo,
-    urlImagem,
-    idMarca,
-    idTipo,
-    dataCadastro,
-    usuarioCadastro
-    ) values (
-    '" . $ativo . "',
-    '" . $quantidade . "',
-    '" . $quantidadeMinAtivo . "',
-    'S',
-    '" . $obs . "',
-    '" . $urlImg . "',
-    '" . $marca . "',
-    '" . $tipo . "',
- NOW(),
- '" . $user . "'
-    )
-";
+    INSERT INTO ativos (
+        descricaoAtivo,
+        quantidadeAtivo,
+        quantidadeMinAtivo,
+        statusAtivo,
+        observacaoAtivo,
+        urlImagem,
+        idMarca,
+        idTipo,
+        dataCadastro,
+        usuarioCadastro,
+        quantidadeObs
+    ) VALUES (
+        '" . $ativo . "',
+        '" . $quantidade . "',
+        '" . $quantidadeMinAtivo . "',
+        'S',
+        '" . $obs . "',
+        '" . $urlImg . "',
+        '" . $marca . "',
+        '" . $tipo . "',
+        NOW(),
+        '" . $user . "',
+        '" . $quantidadeObs . "'
+    )";
     $result = mysqli_query($conexao, $query) or die(false);
     if ($result) {
-        echo "cadastro realizado";
+        echo "Cadastro realizado";
     }
 }
+
+// Ação de alterar status
 if ($acao == 'alterar_status') {
     $sql = "
     UPDATE ativos
     SET statusAtivo = '$statusAtivo'
-     WHERE
-      idAtivo = $idAtivo
+    WHERE idAtivo = $idAtivo
     ";
     $result = mysqli_query($conexao, $sql) or die(false);
     if ($result) {
-        echo "status alterado";
+        echo "Status alterado";
     }
 }
 
+// Ação de buscar informações
 if ($acao == 'get_info') {
     $sql = "
     SELECT
@@ -91,19 +91,20 @@ if ($acao == 'get_info') {
         observacaoAtivo,
         urlImagem,
         idMarca,
-        idTipo
+        idTipo,
+        quantidadeObs
     FROM 
         ativos
     WHERE
-     idAtivo = $idAtivo
+        idAtivo = $idAtivo
     ";
-
     $result = mysqli_query($conexao, $sql) or die(false);
     $ativo  = $result->fetch_all(MYSQLI_ASSOC);
     echo json_encode($ativo);
     exit();
 }
 
+// Ação de atualizar
 if ($acao == 'update') {
     if ($img != null) {
         $sql_remove = "SELECT urlImagem FROM ativos WHERE idAtivo = $idAtivo";
@@ -113,7 +114,6 @@ if ($acao == 'update') {
         unlink($img_antiga);
 
         $pasta_base = $_SERVER['DOCUMENT_ROOT'] . '/aulasenac/cadastro senac projeto ivan/img_ativo/';
-         
         $data = date("YmdHis");
         $tipoImagem = $img['type'];
         $quebratipo = explode('/', $tipoImagem);
@@ -129,22 +129,27 @@ if ($acao == 'update') {
     } else {
         $completa_sql = "";
     }
+
+    // Adiciona o campo quantidadeObs na atualização, se fornecido
+    $quantidadeObsSql = $quantidadeObs !== null ? ", quantidadeObs='$quantidadeObs'" : " ";
+
     $sql = "
-    UPDATE ativos set
-    descricaoAtivo='$ativo',
-    idMarca='$marca',
-    idTipo='$tipo',
-    quantidadeAtivo='$quantidade',
-    quantidadeMinAtivo='$quantidadeMinAtivo',
-    observacaoAtivo='$obs'";
-    $sql .= $completa_sql;
-    $sql .= "
-     WHERE
-      idAtivo = $idAtivo
+    UPDATE ativos SET
+        descricaoAtivo='$ativo',
+        idMarca='$marca',
+        idTipo='$tipo',
+        quantidadeAtivo='$quantidade',
+        quantidadeMinAtivo='$quantidadeMinAtivo',
+        observacaoAtivo='$obs'
+        $completa_sql
+        $quantidadeObsSql
+    WHERE
+        idAtivo = $idAtivo
     ";
     
     $result = mysqli_query($conexao, $sql) or die(false);
     if ($result) {
-        echo "informações alteradas";
+        echo "Informações alteradas";
     }
 }
+?>

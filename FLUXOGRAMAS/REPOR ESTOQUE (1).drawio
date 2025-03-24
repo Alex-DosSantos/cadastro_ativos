@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 OPR/117.0.0.0" version="26.0.16">
+  <diagram name="Página-1" id="U0b4TapsaXo1doveY9Hp">
+    <mxGraphModel dx="2207" dy="773" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="N1uA_XhgEIr7KM-Vspy9-12" target="N1uA_XhgEIr7KM-Vspy9-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-2" value="INICIO" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="330" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="N1uA_XhgEIr7KM-Vspy9-4" target="N1uA_XhgEIr7KM-Vspy9-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-4" value="CONSULTA OS ATIVO NO BANCO DE DADOS&amp;nbsp;&lt;div&gt;ONDE SE TIVER EM FALTA ELE APARECERA COM UMA FOTO, PREÇO, NOME DO ATIVO E LINK PARA O MERCADO LIVRE EM FORMA DE BOTAO&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="340" width="120" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="N1uA_XhgEIr7KM-Vspy9-7" target="N1uA_XhgEIr7KM-Vspy9-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="N1uA_XhgEIr7KM-Vspy9-7" target="N1uA_XhgEIr7KM-Vspy9-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-7" value="SE TIVER EM FALTA" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="315" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-8" value="SIM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="364" y="280" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-9" value="NAO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="364" y="440" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-10" value="APARECE OS ATIVOS EM FALTA NOVOS E ATÉ 20 UNIDADES&amp;nbsp;&lt;div&gt;COM O BOTAO PARA VER MAIS NO MERCADO LIVRE&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="372.5" y="150" width="125" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-11" value="A ABA FICARA VAZIA SEM NENHUM ITEM A SER REPOSTO" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="372.5" y="490" width="125" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="N1uA_XhgEIr7KM-Vspy9-2" target="N1uA_XhgEIr7KM-Vspy9-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="370" as="sourcePoint" />
+            <mxPoint x="210" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="N1uA_XhgEIr7KM-Vspy9-12" value="ABA ONDE DEVE APARECER OS ATIVOS QUE ESTAO FORA DE ESTOQUE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

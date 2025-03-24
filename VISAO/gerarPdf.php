@@ -6,10 +6,10 @@ include('controle_session.php');
 $title =  "Relatório Gerado";
 include('menu_superior.php');
 
-// Capturar os filtros da URL
+
 $filtros = $_GET;
 
-// Consultar dados das movimentações com os filtros aplicados
+
 $sql = "SELECT
             m.idMovimentacao,
             m.idUsuario,

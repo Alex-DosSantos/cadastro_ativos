@@ -4,6 +4,10 @@ $(document).ready(function(){
       
       let marca = $("#marca").val();
       let idMarca = $("#idMarca").val();
+      if (marca == '') {
+        alert('A descrição da Marca deve ser preenchida!');
+        return false;
+    }
       if (idMarca == ""){
         acao='inserir';
         } else {

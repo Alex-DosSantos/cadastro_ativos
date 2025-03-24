@@ -3,7 +3,6 @@
 session_start();
 
 // Verificar se o usuário está logado (defina sua própria lógica de login)
-
 if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
     $is_logged_in = true;
 }
@@ -35,17 +34,23 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
 
         /* Estilo para a barra superior preta */
         header {
-            background-color: black;
+            background-color: rgba(0, 0, 0, 0.9);
             padding: 10px 0;
             position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Logo no canto superior esquerdo */
         .logo {
             position: absolute;
             top: 10px;
-            left: 10px;
+            left: 20px;
             height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         /* Estilo da barra de navegação */
@@ -68,38 +73,54 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
             display: block;
             font-weight: 600;
             letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
         }
 
         /* Efeito de hover */
         nav ul li a:hover {
-            background-color: #575757;
-            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            
         }
 
         /* Submenu */
         .submenu {
             display: none;
             position: absolute;
-            top: 100%;
+            top: 90%;
             left: 0;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.9);
             min-width: 200px;
             list-style-type: none;
             padding: 0;
             margin: 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .submenu li a {
             padding: 12px 16px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
         }
 
         .submenu li a:hover {
-            background-color: #575757;
-            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+            
         }
 
         .usuario-link:hover+.submenu,
@@ -109,48 +130,64 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
 
         /* Caixa centralizada */
         .caixa-centralizada {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 30px;
             width: 80%;
             max-width: 800px;
             margin: 100px auto;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .caixa-centralizada h1 {
             font-size: 2.5rem;
             color: #333;
             margin-bottom: 20px;
+            animation: fadeIn 1s ease;
         }
 
         .caixa-centralizada p {
             font-size: 1.2rem;
             color: #555;
             line-height: 1.5;
+            animation: fadeIn 1.5s ease;
         }
 
         /* Botão de logout */
         .logout-btn {
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: 20px;
             background-color: orange;
             color: white;
             padding: 12px 20px;
             font-size: 1rem;
             border-radius: 25px;
-            /* Borda arredondada */
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* Efeito de hover no botão de logout */
         .logout-btn:hover {
             background-color: #e68a00;
             transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -170,6 +207,7 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
                         <li><a href="visao/cadastro_usuario.php">Cadastrar Usuário</a></li>
                         <li><a href="visao/login.php">Login Usuário</a></li>
                         <li><a href="visao/listar_usuario.php">Usuários</a></li>
+                        <li><a href="visao/opcoes.php">Opções</a></li>
                     </ul>
                 </li>
                 <li><a class="usuario-link" href="visao/ativos.php">ATIVOS</a>
@@ -180,10 +218,12 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
                 </li>
                 <li><a href="visao/movimentacao.php">MOVIMENTAÇÕES</a></li>
                 <li><a href="visao/relatorio.php">RELATORIOS</a></li>
+                <li><a href="visao/busca_prod_ml.php">REPOR</a>
+                </li>
             </ul>
         </nav>
 
-        <?php if ($is_logged_in): ?>
+        <?php if (isset($is_logged_in)): ?>
             <!-- Botão de logout, visível apenas se o usuário estiver logado -->
             <a href="controle/logout.php" class="logout-btn">Logout</a>
         <?php endif; ?>
@@ -193,7 +233,7 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
     <div class="caixa-centralizada">
         <h1>Bem-vindo à página de controle de ativos do Senac</h1>
         <p>Para melhor compreensão, nesta página estarão disponíveis o login e controle de usuários. Você deve acessar com sua conta em <strong>Home</strong> para ter acesso e realizar alterações ou criar um novo cadastro.</p>
-        <p><strong>Caso queira apenas olhar, não será necessário fazer login.</strong></p>
+        <p><strong>Caso queira apenas olhar, será necessário fazer login.</strong></p>
     </div>
 
 </body>

@@ -12,23 +12,23 @@ include ('menu_superior.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcas</title>
   
-  <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="../css/stylees.css"> <!-- Caminho para o seu arquivo CSS -->
+ 
+  <link rel="stylesheet" href="../css/stylees.css"> 
   
-  <!-- Inclusão de Bootstrap -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <script src="../js/marcas.js"></script>
 <body>
-    <!-- Caixa semi-translúcida com bordas arredondadas -->
+    
     <div class="content-box">
-        <!-- Título centralizado -->
+        
         <div class="d-flex justify-content-center mb-4">
             <h1>Marcas</h1>
         </div>
 
 
-        <!-- Tabela de Marcas -->
+        
         <table class="table table-striped table-bordered table-hover">
             <thead class="thead-dark bg-dark-custom text-white">
                 <tr>
@@ -72,16 +72,16 @@ include ('menu_superior.php');
             </tbody>
         </table>
 
-        <!-- Botão de cadastro centralizado -->
+        
         <div class="button-container">
             <button type="button" class="btn btn-primary btn_modal" onclick="limpar_modal()" id="btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar Marca</button>
         </div>  
     </div>
 
-    <!-- Modal de cadastro de marca -->
+    
     <?php include_once('modal_marca.php'); ?>
 
-    <!-- Inclusão do Bootstrap -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

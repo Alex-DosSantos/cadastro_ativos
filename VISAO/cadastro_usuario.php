@@ -9,70 +9,137 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
-        /* Estilos para a caixa de login */
-        .login-container {
-            background-color: rgba(120, 120, 120, 0.8); /* Fundo cinza semitransparente */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            margin: 0 auto;
-            position: relative;
-            color: white; /* Cor da fonte para branco */
-            border: 2px solid #800080; /* Borda roxa ao redor de toda a caixa */
-        }
-
-        /* Fundo de galaxia */
-        body {
+             /* Estilos globais */
+             body {
             background: url('https://www.gifcen.com/wp-content/uploads/2022/04/wallpaper-gif-4.gif') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white; /* Cor da fonte para branco */
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Cor do botão personalizada (Púrpura) */
-        .btn-purple {
-            background-color: #800080;  /* Cor púrpura */
-            border-color: #800080;      /* Bordas púrpura */
-            color: white;               /* Texto do botão em branco */
+        /* Container de login */
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semitransparente */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            color: white;
+            border: 2px solid #800080; /* Borda roxa */
+            animation: fadeIn 1s ease;
         }
 
-        .btn-purple:hover {
-            background-color: #750bb3;  /* Tom mais escuro de púrpura */
-            border-color: #750bb3;      /* Bordas mais escuras */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Estilos para o texto de ajuda */
-        .form-text {
-            font-size: 0.85rem;
+        /* Título */
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        /* Estilo para as caixas de digitação (inputs) */
+        /* Campos de formulário */
         .form-control {
-            background-color: #555;  /* Cor de fundo cinza escuro */
-            color: white;            /* Texto em branco */
-            border: 1px solid #444; /* Cor da borda um pouco mais clara que o fundo */
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white; /* Texto sempre branco */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
-            background-color: #666; /* Cor de fundo mais clara quando o campo é focado */
-            border-color: #800080;  /* Cor da borda roxa quando o campo é focado */
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #800080;
+            box-shadow: 0 0 8px rgba(128, 0, 128, 0.5);
+            color: white; /* Texto sempre branco, mesmo no foco */
         }
 
-        h1 {
-            text-align: center;
-            color: white; /* Cor do título em branco */
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        /* Botão personalizado */
+        .btn-purple {
+            background-color: #800080;
+            border-color: #800080;
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-purple:hover {
+            background-color: #750bb3;
+            border-color: #750bb3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.4);
+        }
+
+        /* Checkbox personalizado */
+        .form-check-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-check-input:checked {
+            background-color: #800080;
+            border-color: #800080;
         }
 
         .form-check-label {
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Texto de ajuda */
+        .form-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Efeito de hover nos labels */
+        label {
+            transition: color 0.3s ease;
+        }
+
+        label:hover {
+            color: #800080;
+        }
+
+        /* Responsividade */
+        @media (max-width: 576px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 

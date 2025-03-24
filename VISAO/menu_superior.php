@@ -12,7 +12,7 @@ if(@$_SESSION ['controle_login'] == true || @$_SESSION ['login_ok'] == true){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Navegação</title>
 
-    <!-- Fonte do Google Fonts -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
@@ -160,6 +160,7 @@ if(@$_SESSION ['controle_login'] == true || @$_SESSION ['login_ok'] == true){
                         <li><a href="../visao/cadastro_usuario.php">Cadastrar Usuário</a></li>
                         <li><a href="../visao/login.php">Login Usuário</a></li>
                         <li><a href="../visao/listar_usuario.php">Usuários</a></li>
+                        <li><a href="../visao/opcoes.php">Opções</a></li>
                     </ul>
                 </li>
                 <li><a class="usuario-link" href="../visao/ativos.php">ATIVOS</a>
@@ -170,11 +171,12 @@ if(@$_SESSION ['controle_login'] == true || @$_SESSION ['login_ok'] == true){
                 </li>
                 <li><a href="../visao/movimentacao.php">MOVIMENTAÇÕES</a></li>
                 <li><a href="../visao/relatorio.php">RELATORIOS</a></li>
+                <li><a href="../visao/busca_prod_ml.php">REPOR</a></li>
             </ul>
         </nav>
 
 <?php if ($is_logged_in): ?>
-    <!-- Botão de logout, visível apenas se o usuário estiver logado -->
+    <!-- Botão de logout -->
     <a href="../controle/logout.php" class="logout-btn">Logout</a>
 <?php endif; ?>
 </header>

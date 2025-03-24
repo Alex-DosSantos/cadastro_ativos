@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 OPR/117.0.0.0" version="26.0.16">
+  <diagram name="Página-1" id="5--Y29_XaWoUFaoUpQtA">
+    <mxGraphModel dx="2207" dy="1942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-2" target="ws-sOLlVpbjEmGa6gf6i-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-2" value="INICIO" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="210" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-3" value="LISTAGEM DE ATIVOS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-4" value="BOTÕES" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="297" y="430" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-5" value="ATIVAR / INATIVAR (SWITH)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="ws-sOLlVpbjEmGa6gf6i-4">
+          <mxGeometry y="30" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-6" value="EDITAR" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="ws-sOLlVpbjEmGa6gf6i-4">
+          <mxGeometry y="60" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-35" value="EXPANDIR (OLHO)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="ws-sOLlVpbjEmGa6gf6i-4">
+          <mxGeometry y="90" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-36" value="BUSCAR PRODUTO NO MERCADO LIVRE (LUPA)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="ws-sOLlVpbjEmGa6gf6i-4">
+          <mxGeometry y="120" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-8" value="ATIVAR E DESATIVAR APARECE UM ALERTA DE CONFIRMAÇAO QUE FAZ UPDATE NO BANCO DE DADOS NO STATUS DE S PARA N E VICE VERSA" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="680" width="134" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-23" target="ws-sOLlVpbjEmGa6gf6i-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-31" target="ws-sOLlVpbjEmGa6gf6i-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-11" value="&amp;nbsp;APARECE O MODAL COM AS INFORMAÇOES DO ATIVO PREENCHIDAS ONDE PODEM SER EDITADAS&amp;nbsp; E CLICAR EM SALVAR ALTERA ESSAS INFORMAÇOES NO BANCO DE DADOS COM UM UPDATE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="320" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-12" value="&lt;div&gt;VALIDAR OS DADOS SE SEGUEM A MESMA REGRA DO CADASTRO&lt;/div&gt;APOS REALIZAR ALTERAÇAO E CONFIRMAR FECHA MODAL E VOLTA A PAGINA ANTERIOR" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="-140" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-16" target="ws-sOLlVpbjEmGa6gf6i-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-15" target="ws-sOLlVpbjEmGa6gf6i-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-15" value="REALIZAR AÇAO?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="150" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-17" value="BOTAO DE FECHA MODAL" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-6" target="ws-sOLlVpbjEmGa6gf6i-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.122;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-27" target="ws-sOLlVpbjEmGa6gf6i-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-23" value="SIM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.122;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-3" target="ws-sOLlVpbjEmGa6gf6i-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="280" as="sourcePoint" />
+            <mxPoint x="297" y="441" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-27" value="ONDE POSSUE NA ABA DE AÇOES&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-5" target="ws-sOLlVpbjEmGa6gf6i-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-11" target="ws-sOLlVpbjEmGa6gf6i-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="645" y="320" as="sourcePoint" />
+            <mxPoint x="575" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-31" value="BOTAO DE SALVAR" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-40" value="ABRE A ABA DE REPOR POREM AGORA SOMENTE COM O ITEM SELECIONADO" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="120" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-36" target="ws-sOLlVpbjEmGa6gf6i-40">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-41" value="BOTAO QUE RECOLHE OU MOSTRA MAIS INFORMAÇOES DO ATIVO QUE DESEJA" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="670" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-35" target="ws-sOLlVpbjEmGa6gf6i-41">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ws-sOLlVpbjEmGa6gf6i-15" target="ws-sOLlVpbjEmGa6gf6i-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="180" as="targetPoint" />
+            <mxPoint x="574" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ws-sOLlVpbjEmGa6gf6i-16" value="NAO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="1">
+          <mxGeometry x="625" y="170" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
