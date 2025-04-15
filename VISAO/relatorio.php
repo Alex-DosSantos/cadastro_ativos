@@ -39,8 +39,9 @@ $movimentacoes_bd = $result->fetch_all(MYSQLI_ASSOC);
 
   <link rel="stylesheet" href="../css/styles22.css">
   
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <style>
+   
     /* Estilos personalizados */
     .filters {
       display: grid;
@@ -120,6 +121,88 @@ $movimentacoes_bd = $result->fetch_all(MYSQLI_ASSOC);
       transform: translateY(0); /* Efeito de pressionar */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra normal ao clicar */
     }
+    
+         /* Tabela principal - garantindo comportamento responsivo */
+    .table-responsive {
+        width: 100%;
+        overflow: hidden; /* Remove completamente a barra de scroll */
+    }
+
+    table {
+        table-layout: fixed; /* Força o controle total das larguras */
+        width: 100%;
+        min-width: 100%; /* Elimina qualquer espaço extra */
+    }
+
+     /* Responsividade - TABELA VIRANDO BLOCOS (768px) */
+     @media (max-width: 768px) {
+        /* Esconde cabeçalho */
+        .table thead {
+            display: none;
+        }
+        
+        /* Transforma linhas em blocos */
+        .table tr {
+            display: block;
+            margin-bottom: 1.5rem;
+            border: 1px solid #fc7f03; /* Laranja do seu tema */
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Transforma células em linhas */
+        .table td {
+            display: block;
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ffe6cc; /* Laranja claro do hover */
+        }
+        
+        /* Remove borda da última célula */
+        .table td:last-child {
+            border-bottom: none;
+        }
+        
+        /* Adiciona rótulos (nomes das colunas) */
+        .table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+            color: #d1024e; /* Rosa escuro do seu tema */
+        }
+        
+        /* Ajustes para os filtros */
+        .filters {
+            grid-template-columns: 1fr;
+        }
+        
+        .filters button {
+            grid-column: span 1;
+        }
+    }
+
+    /* Ajustes para telas muito pequenas (opcional) */
+    @media (max-width: 480px) {
+        .table td {
+            padding-left: 40%;
+        }
+        
+        .table td::before {
+            width: 35%;
+        }
+    }
+</style>
+
   </style>
 </head>
 <body>
@@ -219,6 +302,7 @@ $movimentacoes_bd = $result->fetch_all(MYSQLI_ASSOC);
     </form>
 
     <!-- Tabela de dados -->
+    <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <thead class="thead-dark bg-dark-custom text-white">
         <tr>
@@ -276,28 +360,28 @@ $movimentacoes_bd = $result->fetch_all(MYSQLI_ASSOC);
         foreach ($movimentacoes_filtradas as $movimentacao) {
         ?>
           <tr>
-            <td><?php echo $movimentacao['ativo']; ?></td>
-            <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
-            <td><?php echo $movimentacao['quantidadeMov']; ?></td>
-            <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
-            <td><?php echo $movimentacao['marca']; ?></td>
-            <td><?php echo $movimentacao['tipo']; ?></td>
-            <td><?php echo $movimentacao['localOrigem']; ?></td>
-            <td><?php echo $movimentacao['localDestino']; ?></td>
-            <td><?php echo date('d/m/Y H:i:s', strtotime($movimentacao['dataMovimentacao'])); ?></td>
-            <td><?php echo $movimentacao['usuario']; ?></td>
+            <td data-label="Ativo"><?php echo $movimentacao['ativo']; ?></td>
+            <td data-label="Descrição"><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
+            <td data-label="Quant. Mov"><?php echo $movimentacao['quantidadeMov']; ?></td>
+            <td data-label="Tipo Mov"><?php echo $movimentacao['tipoMovimentacao']; ?></td>
+            <td data-label="Marca"><?php echo $movimentacao['marca']; ?></td>
+            <td data-label="Tipo"><?php echo $movimentacao['tipo']; ?></td>
+            <td data-label="Origem"><?php echo $movimentacao['localOrigem']; ?></td>
+            <td data-label="Destino"><?php echo $movimentacao['localDestino']; ?></td>
+            <td data-label="Data"><?php echo date('d/m/Y H:i:s', strtotime($movimentacao['dataMovimentacao'])); ?></td>
+            <td data-label="User"><?php echo $movimentacao['usuario']; ?></td>
           </tr>
         <?php
         }
         ?>
       </tbody>
     </table>
-
+        </div>
     <!-- Botão de exportar -->
     <div class="button-container">
       <a href="gerarPdf.php?<?php echo http_build_query($_GET); ?>" class="btn-exportar">Exportar Relatório</a>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
 </body>
 </html>

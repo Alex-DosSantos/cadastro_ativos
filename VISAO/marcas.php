@@ -1,6 +1,7 @@
 <?php
 include_once ('../controle/controle_session.php');
 include_once ('../controle/funcoes.php');
+
 include ('../modelo/conexao.php');
 $marcas = buscar_info_bd($conexao, 'marca');
 $title = "Marcas";
@@ -16,7 +17,7 @@ include ('menu_superior.php');
   <link rel="stylesheet" href="../css/stylees.css"> 
   
   
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
 </head>
 <script src="../js/marcas.js"></script>
 <body>
@@ -82,6 +83,6 @@ include ('menu_superior.php');
     <?php include_once('modal_marca.php'); ?>
 
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

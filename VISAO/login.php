@@ -19,127 +19,133 @@ if (isset($_GET['error_auten']) && $_GET['error_auten'] == 's') {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
- body {
-            background: url('https://www.gifcen.com/wp-content/uploads/2022/04/wallpaper-gif-4.gif') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    /* PALETA OFICIAL SENAC */
+    :root {
+        --senac-blue: #004A8D;
+        --senac-orange: #F7941D;
+        --senac-light-orange: #FDC180;
+    }
 
-        /* Container de login */
+    /* ESTILOS GLOBAIS */
+    body {
+        background: url('https://img.freepik.com/fotos-premium/textura-de-artesanato-azul-marinho-branco-e-laranja-cor-de-fundo-macro-de-fundo-papelao-indigo-abstrato-vintage_113767-6640.jpg') center/cover no-repeat fixed;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* CONTAINER SEMI-TRANSLÚCIDO SIMPLES */
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.75); /* 75% de opacidade */
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 74, 141, 0.2);
+        max-width: 450px;
+        width: 90%;
+        margin: 0 auto;
+        border: 2px solid var(--senac-orange); /* Contorno laranja sólido */
+    }
+
+    /* TÍTULO */
+    h1 {
+        text-align: center;
+        color: var(--senac-blue);
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+        position: relative;
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--senac-orange);
+    }
+
+    /* CAMPOS DE FORMULÁRIO */
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: var(--senac-blue);
+        border: 2px solid rgba(0, 74, 141, 0.3);
+        border-radius: 8px;
+        padding: 12px 16px;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .form-control:focus {
+        border-color: var(--senac-orange);
+        box-shadow: 0 0 0 3px rgba(247, 148, 30, 0.2);
+        background-color: white;
+    }
+
+    /* BOTÃO PRINCIPAL */
+    .btn-senac {
+        background-color: var(--senac-orange);
+        color: white;
+        border: none;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-senac:hover {
+        background-color: #e68317;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(247, 148, 30, 0.3);
+    }
+    
+    /* LINK DE CADASTRO */
+    .register-link {
+        text-align: center;
+        margin-top: 20px;
+        color: var(--senac-blue);
+    }
+    
+    .register-link a {
+        color: var(--senac-orange);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .register-link a:hover {
+        color: #e68317;
+        text-decoration: underline;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 576px) {
         .login-container {
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semitransparente */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            max-width: 450px;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            color: white;
-            border: 2px solid #800080; /* Borda roxa */
-            animation: fadeIn 1s ease;
+            padding: 30px 20px;
+            width: 85%;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Título */
+        
         h1 {
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
         }
-
-        /* Campos de formulário */
-        .form-control {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white; /* Texto sempre branco */
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            padding: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #800080;
-            box-shadow: 0 0 8px rgba(128, 0, 128, 0.5);
-            color: white; /* Texto sempre branco, mesmo no foco */
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Botão personalizado */
-        .btn-purple {
-            background-color: #800080;
-            border-color: #800080;
-            color: white;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .btn-purple:hover {
-            background-color: #750bb3;
-            border-color: #750bb3;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.4);
-        }
-
-        /* Texto de ajuda */
-        .form-text {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Efeito de hover nos labels */
-        label {
-            transition: color 0.3s ease;
-        }
-
-        label:hover {
-            color: #800080;
-        }
-
-        /* Responsividade */
-        @media (max-width: 576px) {
-            .login-container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <form action="../controle/controle_login.php" method="post">
         <div class="login-container">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario:</label>
                 <input type="text" name="user" class="form-control" id="usuario" required aria-describedby="emailHelp">
@@ -149,7 +155,11 @@ if (isset($_GET['error_auten']) && $_GET['error_auten'] == 's') {
                 <label for="senha" class="form-label">Senha:</label>
                 <input type="password" name="senha" class="form-control" required id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-purple w-100">Entrar</button>
+            <button type="submit" class="btn btn-purple w-100" style="background:orange;">Entrar</button>
+            <div class="register-link">
+                
+                <p>Não tem uma conta? <a href="../visao/cadastro_usuario.php">Cadastre-se</a></p>
+            </div>
         </div>
     </form>
 

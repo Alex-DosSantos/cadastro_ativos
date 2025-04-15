@@ -103,6 +103,28 @@ if ($acao == 'get_info') {
     echo json_encode($ativo);
     exit();
 }
+if ($acao == 'busca_detalhe') {
+    $sql = "
+    SELECT
+        descricaoAtivo,
+        quantidadeAtivo,
+        quantidadeMinAtivo,
+        statusAtivo,
+        observacaoAtivo,
+        urlImagem,
+        idMarca,
+        idTipo,
+        quantidadeObs
+    FROM 
+        ativos
+    WHERE
+        idAtivo = $idAtivo
+    ";
+    $result = mysqli_query($conexao, $sql) or die(false);
+    $ativo  = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($ativo);
+    exit();
+}
 
 // Ação de atualizar
 if ($acao == 'update') {

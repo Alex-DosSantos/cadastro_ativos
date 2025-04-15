@@ -89,6 +89,8 @@ function editar(idOpcao) {
               $("#nivelOpcao").val(retorno.dados.nivelOpcao);
               $("#urlOpcao").val(retorno.dados.urlOpcao);
               $("#idOpcao").val(retorno.dados.idOpcao);
+              $("#opcaoPai").val(retorno.dados.opcaoPai);
+              verificarNivel (retorno.dados.nivelOpcao,retorno.dados.idOpcaoPai);
 
               // Abre o modal
               $("#exampleModal").modal('show');
@@ -102,7 +104,7 @@ function editar(idOpcao) {
   });
 } 
 // Função para verificar o nível selecionado e carregar o campo dinâmico
-function verificarNivel(idNivel) {
+function verificarNivel(idNivel,opcaoPai = false) {
     const campoDinamico = $("#campoDinamico");
     const selectOpcaoPai = $("#opcaoPai");
     const labelOpcaoPai = $("#labelOpcaoPai");
@@ -111,14 +113,15 @@ function verificarNivel(idNivel) {
     campoDinamico.hide();
     selectOpcaoPai.empty();
   
+  
     // Verifica o nível selecionado
     if (idNivel == 2) { // Submenu
       labelOpcaoPai.text("Selecione o Menu:");
-      buscarOpcoesPai(1); // Busca opções do tipo menu (idNivel = 1)
+      buscarOpcoesPai(1,opcaoPai); // Busca opções do tipo menu (idNivel = 1)
       campoDinamico.show();
     } else if (idNivel == 3) { // Ação
       labelOpcaoPai.text("Selecione o Submenu:");
-      buscarOpcoesPai(2); // Busca opções do tipo submenu (idNivel = 2)
+      buscarOpcoesPai(2,opcaoPai); // Busca opções do tipo submenu (idNivel = 2)
       campoDinamico.show();
     } else { // Menu
       campoDinamico.hide();
@@ -126,7 +129,7 @@ function verificarNivel(idNivel) {
   }
   
   // Função para buscar opções pai (menu ou submenu)
-  function buscarOpcoesPai(idNivelPai) {
+  function buscarOpcoesPai(idNivelPai,opcaoPai = false) {
     $.ajax({
       type: 'POST',
       url: "../controle/opcoes_controller.php",
@@ -141,7 +144,14 @@ function verificarNivel(idNivel) {
           selectOpcaoPai.empty();
           selectOpcaoPai.append('<option value="">Selecione uma opção</option>');
           resposta.dados.forEach(opcao => {
-            selectOpcaoPai.append(`<option value="${opcao.idOpcao}">${opcao.descricaoOpcao}</option>`);
+          
+            if (opcaoPai == opcao.idOpcao){
+              selectOpcaoPai.append(`<option value="${opcao.idOpcao}" selected>${opcao.descricaoOpcao}</option>`);
+              
+            }else{
+              selectOpcaoPai.append(`<option value="${opcao.idOpcao}">${opcao.descricaoOpcao}</option>`);
+            }
+            
           });
         } else {
           alert('Erro: ' + resposta.mensagem);

@@ -112,6 +112,37 @@ function editar(idAtivo) {
     }
   });
 }
+function busca_detalhe (idAtivo) {
+  $('#idAtivo').val(idAtivo);
+  $.ajax({
+    type: 'POST',
+    url: "../controle/ativos_controller.php",
+    data: {
+      acao: 'busca_detalhe',
+      idAtivo: idAtivo
+    },
+    success: function (result) {
+      retorno = JSON.parse(result);
+      $("#btn_modal_detalhe").click();
+
+      $("#ativo_detalhe").html(retorno[0]['descricaoAtivo']);
+      $("#quantidade_detalhe").html(retorno[0]['quantidadeAtivo']);
+      $("#quantidadeMinAtivo_detalhe").html(retorno[0]['quantidadeMinAtivo']);
+      $("#marca_detalhe").html(retorno[0]['idMarca']);
+      $("#tipo_detalhe").html(retorno[0]['idTipo']);
+      $("#obs_detalhe").html(retorno[0]['observacaoAtivo']);
+      if (retorno[0]['urlImagem'] != "") {
+        $("#img_previer_detalhe").attr('src', window.location.protocol + "//" + window.location.host + '' + retorno[0]['urlImagem']);
+        $(".div_previer").attr('style', 'display:block');
+      } else {
+        $(".div_previer").attr('style', 'display:none');
+      }
+
+      // Armazena a quantidade original para comparação
+      
+    }
+  });
+}
 
 function limpar_modal() {
   $("#ativo").val('');

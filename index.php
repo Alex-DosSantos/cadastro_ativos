@@ -6,6 +6,27 @@ session_start();
 if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
     $is_logged_in = true;
 }
+
+include_once('modelo/conexao.php');
+$cargo = $_SESSION['idCargo'] ?? null;
+
+$sqlMenu = "
+    select 
+    idOpcao,
+    descricaoOpcao,
+    urlOpcao
+    from 
+    opcoes_menu O 
+    where
+    nivelOpcao = 1
+    and statusOpcao = 'S'
+    and idOpcao in(
+    select idOpcao from acesso A where A.idOpcao = O.idOpcao and statusAcesso = 'S' and idCargo = $cargo
+) ";
+
+$result = mysqli_query($conexao, $sqlMenu) or die(false);
+$acessos_menu = $result->fetch_all(MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,6 +38,8 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
 
     <!-- Fonte do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         /* Estilo geral do corpo */
@@ -43,7 +66,7 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
         /* Logo no canto superior esquerdo */
         .logo {
             position: absolute;
-            top: 10px;
+            top: 1px;
             left: 20px;
             height: 50px;
             transition: transform 0.3s ease;
@@ -189,6 +212,50 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
             transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
+
+        /* Estilos para o menu responsivo */
+        .bg-primary {
+            --bs-bg-opacity: 1;
+            background-color: rgb(0 0 0) !important;
+        }
+
+        .usuario-link {
+            font-weight: bold;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        #navbarNavDropdown {
+            justify-content: center;
+        }
+
+        @media (max-width: 991.98px) {
+            .dropdown-menu {
+                background-color: transparent;
+                border: none;
+            }
+
+            .navbar-toggler {
+                position: relative;
+                left: -7rem;
+            }
+
+            .dropdown-item {
+                padding-left: 2rem;
+                color: rgba(255, 255, 255, 0.75);
+            }
+
+            .dropdown-item:hover {
+                color: white;
+                background-color: transparent;
+            }
+        }
     </style>
 </head>
 
@@ -196,31 +263,60 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
 
     <!-- Barra superior com a logo e menu -->
     <header>
-        <!-- Logo do Senac -->
-        <img src="https://api.senacrs.com.br/bff/site-senac/v1/file/078f143692e591ec20623efea089cdf3d19a24.png" alt="Logo Senac" class="logo">
-
         <!-- Menu de navegação -->
-        <nav>
-            <ul>
-                <li><a href="#" class="usuario-link">HOME</a>
-                    <ul class="submenu">
-                        <li><a href="visao/cadastro_usuario.php">Cadastrar Usuário</a></li>
-                        <li><a href="visao/login.php">Login Usuário</a></li>
-                        <li><a href="visao/listar_usuario.php">Usuários</a></li>
-                        <li><a href="visao/opcoes.php">Opções</a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="https://www.sc.senac.br/cursotecnico/images/logo-ext-white.png" alt="Logo Senac" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <?php
+                        foreach ($acessos_menu as $acesso) {
+                            $sqlSubMenu = "
+                                select 
+                                idOpcao,
+                                descricaoOpcao,
+                                urlOpcao
+                                from 
+                                opcoes_menu O 
+                                where
+                                idOpcaoPai = '" . $acesso['idOpcao'] . "'
+                                and statusOpcao = 'S'
+                                and nivelOpcao = 2
+                                and idOpcao in(
+                                select idOpcao from acesso A where A.idOpcao = O.idOpcao and statusAcesso = 'S' and idCargo = $cargo
+                            )";
+                            $resultSubMenu = mysqli_query($conexao, $sqlSubMenu) or die(false);
+                            $acessos_submenu = $resultSubMenu->fetch_all(MYSQLI_ASSOC);
+                            if (count($acessos_submenu) > 0) { 
+                        ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle usuario-link" href="../index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <?php echo $acesso['descricaoOpcao'] ?>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <?php
+                                        foreach ($acessos_submenu as $subMenu) {
+                                            echo '<li><a class="dropdown-item" href="visao/' . $subMenu['urlOpcao'] . '">' . $subMenu['descricaoOpcao'] . '</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                        <?php
+                            } else {
+                                echo ' <li class="nav-item">
+                                    <a class="nav-link" href="visao/' . $acesso['urlOpcao'] . '">' . $acesso['descricaoOpcao'] . '</a>
+                                </li>';
+                            }
+                        }
+                        ?>
                     </ul>
-                </li>
-                <li><a class="usuario-link" href="visao/ativos.php">ATIVOS</a>
-                    <ul class="submenu">
-                        <li><a href="visao/marcas.php">Cadastrar Marcas</a></li>
-                        <li><a href="visao/Tipos.php">Cadastrar Tipos</a></li>
-                    </ul>
-                </li>
-                <li><a href="visao/movimentacao.php">MOVIMENTAÇÕES</a></li>
-                <li><a href="visao/relatorio.php">RELATORIOS</a></li>
-                <li><a href="visao/busca_prod_ml.php">REPOR</a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
 
         <?php if (isset($is_logged_in)): ?>
@@ -236,6 +332,8 @@ if (@$_SESSION['controle_login'] == true || @$_SESSION['login_ok'] == true) {
         <p><strong>Caso queira apenas olhar, será necessário fazer login.</strong></p>
     </div>
 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
